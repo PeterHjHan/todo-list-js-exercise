@@ -1,13 +1,16 @@
-// Arrays to keep track of each task's state
-// const taskTitles = [];
-// const taskComplete = [];
-// const taskDescription = [];
+// AFTER 
 
 function newTask(title, description) {
   const task = {
     title: title,
     description: description,
     complete: false,
+    logState: function() {
+      console.log(`${this.title} has${this.complete ? "" : " not"} been completed`);
+    },
+    markComplete: function() {
+      this.complete = true;
+    },
   };
   return task;
 };
@@ -16,21 +19,15 @@ const task1 = newTask("Clean Cat Litter", "Take all the 💩 out of the litter b
 const task2 = newTask("Do Laundry", "😨");
 const tasks = [task1, task2];
 
-function completeTask(task) {
-  task.complete = true;
-}
+task1.logState();
 
-function cancelTask(task) {
-  task.complete = false;
-}
-function logTaskResults(task) {
-  console.log(`${task.title} has${task.complete ? "" :" not"} been compeleted`);
-}
 
-completeTask(task1);
-cancelTask(task1);
+//BEFORE
 
-logTaskResults(task2);
+// Arrays to keep track of each task's state
+// const taskTitles = [];
+// const taskComplete = [];
+// const taskDescription = [];
 
 // Create a new task by adding to the arrays
 // A new task will be created as incomplete
